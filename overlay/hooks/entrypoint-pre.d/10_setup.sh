@@ -20,5 +20,8 @@ sed -i "s/slice 1m;/slice ${CACHE_SLICE_SIZE};/" /etc/nginx/sites-available/cach
 sed -i "s/UPSTREAM_DNS/${UPSTREAM_DNS}/"    /etc/nginx/sites-available/cache.conf.d/10_root.conf
 sed -i "s/UPSTREAM_DNS/${UPSTREAM_DNS}/"    /etc/nginx/sites-available/upstream.conf.d/10_resolver.conf
 sed -i "s/UPSTREAM_DNS/${UPSTREAM_DNS}/"    /etc/nginx/stream-available/10_sni.conf
+sed -i "s/UPSTREAM_CONNECT_TIMEOUT/${UPSTREAM_CONNECT_TIMEOUT}/" /etc/nginx/sites-available/upstream.conf.d/25_timeouts.conf
+sed -i "s/UPSTREAM_SEND_TIMEOUT/${UPSTREAM_SEND_TIMEOUT}/"       /etc/nginx/sites-available/upstream.conf.d/25_timeouts.conf
+sed -i "s/UPSTREAM_READ_TIMEOUT/${UPSTREAM_READ_TIMEOUT}/"       /etc/nginx/sites-available/upstream.conf.d/25_timeouts.conf
 sed -i "s/LOG_FORMAT/${NGINX_LOG_FORMAT}/"  /etc/nginx/sites-available/10_cache.conf
 sed -i "s/LOG_FORMAT/${NGINX_LOG_FORMAT}/"  /etc/nginx/sites-available/20_upstream.conf
